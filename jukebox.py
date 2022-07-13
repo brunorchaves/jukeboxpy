@@ -1,4 +1,3 @@
-from msvcrt import setmode
 from numpy import empty
 import pygame
 import subprocess
@@ -37,7 +36,7 @@ def tocarMusica(codigo):
     else:
         pygame.mixer.music.stop()
 
-
+tocando = 0
 
 while(1):
 
@@ -56,13 +55,18 @@ while(1):
         codigo =4 
     else:
         codigo = 4
-    if(gpio.input(27) == gpio.HIGH):
-        t0 = threading.Thread(target = tocarMusica,args = (codigo, ))
-        # tocarMusica(codigo)
-        t0.start()
-        print("tocando musica ")
+    if(gpio.input(13) == gpio.HIGH):
+        
+        if(tocando == 0):
+            t0 = threading.Thread(target = tocarMusica,args = (codigo, ))
+            # tocarMusica(codigo)
+            t0.start()
+            print("tocando musica ")
+            print(codigo)
+            tocando = 1 
 
     else:
         pygame.mixer.music.stop()
         print("musica parada")
+        tocando = 0
 
