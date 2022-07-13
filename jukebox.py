@@ -55,8 +55,8 @@ while(1):
         gpio.input(7) == gpio.HIGH & gpio.input(11) == gpio.LOW):
         codigo =4 
     else:
-        codigo = 0 
-    if(gpio.input(13) == gpio.HIGH and codigo != 0):
+        codigo = 4
+    if(gpio.input(27) == gpio.HIGH):
         t0 = threading.Thread(target = tocarMusica,args = (codigo, ))
         # tocarMusica(codigo)
         t0.start()
