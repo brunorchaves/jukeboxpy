@@ -31,7 +31,7 @@ def tocarMusica(codigo):
         pygame.mixer.music.play(0)
     elif(codigo == 3):
         print("musica AHA")
-        pygame.mixer.music.load('ChuckBerryJohnnyBGoode.mp3')
+        pygame.mixer.music.load('ahaTakeOnMe.mp3')
         pygame.mixer.music.play(0)
     elif(codigo == 4):
         print("musica LZ")
